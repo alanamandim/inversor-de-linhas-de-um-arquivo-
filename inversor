@@ -1,0 +1,26 @@
+// escreva aqui seu programa
+#include<iostream>
+#include<string>
+#include<stack>
+#include<fstream>
+
+using namespace std;
+
+int main(int argc, char *argv[]){
+
+    string frase;
+
+    ifstream arq(argv[1]);
+    if(arq.is_open()){
+        stack<string>linhas;
+        while (getline(arq, frase)) {
+        linhas.push(frase);
+        }
+        while(!linhas.empty()){
+            cout<<linhas.top()<<endl;
+            linhas.pop();
+        }
+
+    }else{
+        cout<<"arquivo invalido"<<endl;
+    }
